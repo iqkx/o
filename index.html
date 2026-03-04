@@ -1,101 +1,1688 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>甜甜网丨永久发布页</title>
-    <link rel="shortcut icon" href="https://picx.zhimg.com/80/v2-8c4c49c9b77fc979edb18c326f56f372_720w.jpeg">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script type="text/javascript" src="assets/js/style.js"></script>
-    <style>
-    .bj{
-    background-image: url(assets/img/bg.svg);
-	background-size: cover;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>甜甜网址导航</title>
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="AI工具导航 - 一站式AI工具导航平台，帮助用户快速发现、筛选和访问各类AI工具，提高工作效率和创造力。">
+  <meta name="keywords" content="AI工具,人工智能工具,AI导航,AI工具推荐,AI工具集合,ChatGPT,Midjourney,AI工具目录">
+  <meta name="author" content="AI工具导航团队">
+  <meta name="robots" content="index, follow">
+  <meta name="revisit-after" content="7 days">
+  <meta name="rating" content="general">
+  <meta name="language" content="zh-CN">
+  <meta name="copyright" content="© 2026 甜甜网址导航">
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="AI工具导航 - 发现最好用的人工智能工具">
+  <meta property="og:description" content="AI工具导航 - 一站式AI工具导航平台，帮助用户快速发现、筛选和访问各类AI工具，提高工作效率和创造力。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.aitoolnavigator.com">
+  <meta property="og:image" content="https://p11-doubao-search-sign.byteimg.com/pgc-image/5b5394c2489043f0a04300045f011331~tplv-be4g95zd3a-image.image">
+  <meta property="og:site_name" content="AI工具导航">
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI工具导航 - 发现最好用的人工智能工具">
+  <meta name="twitter:description" content="AI工具导航 - 一站式AI工具导航平台，帮助用户快速发现、筛选和访问各类AI工具，提高工作效率和创造力。">
+  <meta name="twitter:image" content="https://p11-doubao-search-sign.byteimg.com/pgc-image/5b5394c2489043f0a04300045f011331~tplv-be4g95zd3a-image.image">
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.aitoolnavigator.com">
+  <!-- Tailwind CSS v3 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- AOS - Animate On Scroll -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#3B82F6',
+            secondary: '#6366F1',
+            accent: '#10B981',
+            dark: '#1E293B',
+            light: '#F8FAFC',
+            'primary-dark': '#2563EB',
+            'secondary-dark': '#4F46E5',
+            'dark-blue': '#0F172A',
+            'light-blue': '#EFF6FF',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          animation: {
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 3s ease-in-out infinite',
+            'glow': 'glow 2s ease-in-out infinite alternate',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            glow: {
+              '0%': { boxShadow: '0 0 5px rgba(59, 130, 246, 0.5)' },
+              '100%': { boxShadow: '0 0 20px rgba(59, 130, 246, 0.8)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .card-hover {
+        @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02];
+      }
+      .glass-effect {
+        @apply bg-white bg-opacity-80 backdrop-blur-md;
+      }
+      .glass-effect-dark {
+        @apply bg-gray-900 bg-opacity-80 backdrop-blur-md;
+      }
+      .btn-primary {
+        @apply bg-primary hover:bg-primary/90 text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
+      }
+      .btn-secondary {
+        @apply bg-secondary hover:bg-secondary/90 text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
+      }
+      .btn-outline {
+        @apply border border-primary text-primary hover:bg-primary hover:text-white font-medium py-2 px-4 rounded-lg transition-all duration-300;
+      }
+      .input-primary {
+        @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 transition-all duration-300;
+      }
+      .input-primary-dark {
+        @apply bg-gray-800 border border-gray-700 text-gray-100 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 transition-all duration-300;
+      }
+      .badge {
+        @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+      }
+      .gradient-text {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600;
+      }
+      .card-gradient {
+        @apply bg-gradient-to-br from-white to-blue-50;
+      }
+      .card-gradient-dark {
+        @apply bg-gradient-to-br from-gray-800 to-gray-900;
+      }
+      .nav-shadow {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      }
+      .sidebar-shadow {
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.03);
+      }
+      .hover-glow {
+        @apply transition-all duration-300 hover:shadow-[0_0_15px_rgba(59,130,246,0.5)];
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col bg-gradient-to-br from-blue-50 to-white relative overflow-x-hidden">
+  <!-- 背景装饰 -->
+  <div class="fixed inset-0 z-0 opacity-10 pointer-events-none">
+    <div class="absolute top-0 left-0 w-full h-full bg-[url('https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/f835bbd77b4c4b5986ebed5ac12047d3~tplv-a9rns2rl98-image.image?rcl=20251109094038E50C62C3F96E1106B852&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1765244456&x-signature=hpUU3k2X2QIF4IPUVbNOoigvAjM%3D')] bg-cover bg-center"></div>
+  </div>
+  <!-- 粒子效果容器 -->
+  <div id="particles-js" class="fixed inset-0 z-0 opacity-30 pointer-events-none"></div>
+  <!-- 顶部导航栏 -->
+  <header class="sticky top-0 z-50 glass-effect border-b border-gray-200 nav-shadow transition-all duration-300" id="main-header">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <!-- 网站标题 -->
+        <div class="flex items-center space-x-2">
+          <div class="bg-gradient-to-r from-primary to-secondary p-1.5 rounded-lg">
+            <img src="https://p11-doubao-search-sign.byteimg.com/pgc-image/5b5394c2489043f0a04300045f011331~tplv-be4g95zd3a-image.image" alt="AI工具导航" class="h-8 w-8 bg-white p-0.5 rounded">
+          </div>
+          <span class="text-xl font-bold gradient-text">AI工具导航</span>
+        </div>
+        
+        <!-- 搜索框 - 中等屏幕及以上显示 -->
+        <div class="hidden md:flex items-center flex-1 max-w-md mx-8">
+          <div class="relative w-full">
+            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <i class="fa fa-search text-gray-400"></i>
+            </div>
+            <input type="text" id="search-input" class="input-primary pl-10" placeholder="搜索AI工具...">
+          </div>
+        </div>
+        
+        <!-- 导航按钮 -->
+        <div class="flex items-center space-x-4">
+          <button id="favorites-btn" class="flex items-center space-x-1 text-gray-600 hover:text-primary transition-colors bg-white bg-opacity-70 hover:bg-opacity-100 px-3 py-1.5 rounded-full">
+            <i class="fa fa-star-o"></i>
+            <span class="hidden md:inline">我的收藏</span>
+            <span id="favorites-badge" class="bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center ml-1">0</span>
+          </button>
+          <button id="theme-toggle" class="text-gray-600 hover:text-primary transition-colors bg-white bg-opacity-70 hover:bg-opacity-100 p-1.5 rounded-full">
+            <i class="fa fa-moon-o"></i>
+          </button>
+        </div>
+      </div>
+      
+      <!-- 搜索框 - 小屏幕显示 -->
+      <div class="md:hidden pb-4">
+        <div class="relative w-full">
+          <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+            <i class="fa fa-search text-gray-400"></i>
+          </div>
+          <input type="text" id="search-input-mobile" class="input-primary pl-10" placeholder="搜索AI工具...">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主内容区 -->
+  <main class="flex-grow container mx-auto px-4 py-6 relative z-10">
+    <div class="flex flex-col lg:flex-row gap-6">
+      <!-- 分类侧边栏 -->
+      <aside class="lg:w-64 flex-shrink-0">
+        <div class="bg-white rounded-xl shadow-sm p-4 sticky top-20 glass-effect sidebar-shadow transition-all duration-300 hover:shadow-md">
+          <h2 class="text-lg font-semibold mb-4 flex items-center">
+            <i class="fa fa-th-list text-primary mr-2"></i>
+            工具分类
+          </h2>
+          
+          <nav class="space-y-1">
+            <button class="category-btn w-full flex items-center px-3 py-2 text-sm font-medium rounded-lg bg-gradient-to-r from-primary to-secondary text-white" data-category="all">
+              <i class="fa fa-globe mr-2"></i>
+              全部工具
+            </button>
+            
+            <button class="category-btn w-full flex items-center px-3 py-2 text-sm font-medium rounded-lg hover:bg-gray-100 text-gray-700 hover:text-primary transition-all duration-300" data-category="chatbot">
+              <i class="fa fa-comments mr-2"></i>
+              对话生成
+            </button>
+            
+            <button class="category-btn w-full flex items-center px-3 py-2 text-sm font-medium rounded-lg hover:bg-gray-100 text-gray-700 hover:text-primary transition-all duration-300" data-category="image">
+              <i class="fa fa-image mr-2"></i>
+              图像生成
+            </button>
+            
+            <button class="category-btn w-full flex items-center px-3 py-2 text-sm font-medium rounded-lg hover:bg-gray-100 text-gray-700 hover:text-primary transition-all duration-300" data-category="video">
+              <i class="fa fa-video-camera mr-2"></i>
+              视频生成
+            </button>
+            
+            <button class="category-btn w-full flex items-center px-3 py-2 text-sm font-medium rounded-lg hover:bg-gray-100 text-gray-700 hover:text-primary transition-all duration-300" data-category="audio">
+              <i class="fa fa-music mr-2"></i>
+              音频音乐
+            </button>
+            
+            <button class="category-btn w-full flex items-center px-3 py-2 text-sm font-medium rounded-lg hover:bg-gray-100 text-gray-700 hover:text-primary transition-all duration-300" data-category="code">
+              <i class="fa fa-code mr-2"></i>
+              编程开发
+            </button>
+            
+            <button class="category-btn w-full flex items-center px-3 py-2 text-sm font-medium rounded-lg hover:bg-gray-100 text-gray-700 hover:text-primary transition-all duration-300" data-category="search">
+              <i class="fa fa-search mr-2"></i>
+              智能搜索
+            </button>
+            
+            <button class="category-btn w-full flex items-center px-3 py-2 text-sm font-medium rounded-lg hover:bg-gray-100 text-gray-700 hover:text-primary transition-all duration-300" data-category="3d">
+              <i class="fa fa-cube mr-2"></i>
+              3D建模
+            </button>
+            
+            <button class="category-btn w-full flex items-center px-3 py-2 text-sm font-medium rounded-lg hover:bg-gray-100 text-gray-700 hover:text-primary transition-all duration-300" data-category="office">
+              <i class="fa fa-briefcase mr-2"></i>
+              办公效率
+            </button>
+          </nav>
+          
+          <div class="mt-6 pt-4 border-t border-gray-100 bg-white bg-opacity-50 rounded-lg p-3">
+            <h3 class="text-sm font-medium text-gray-500 mb-2">数据统计</h3>
+            <div class="flex items-center justify-between text-sm">
+              <span class="text-gray-600">收录工具</span>
+              <span class="font-semibold text-primary" id="tool-count">0</span>
+            </div>
+            <div class="flex items-center justify-between text-sm mt-1">
+              <span class="text-gray-600">我的收藏</span>
+              <span class="font-semibold text-secondary" id="favorite-count">0</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+      
+      <!-- 工具卡片区域 -->
+      <div class="flex-grow">
+        <!-- 筛选结果信息 -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-6">
+          <h1 class="text-2xl font-bold text-gray-800" id="result-title">
+            <span class="gradient-text">全部AI工具</span>
+          </h1>
+          <div class="flex items-center space-x-2 mt-2 sm:mt-0">
+            <span class="text-sm text-gray-500">排序方式：</span>
+            <select id="sort-select" class="bg-white border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-primary focus:border-primary block p-2 hover:shadow-md transition-all duration-300">
+              <option value="popular">热门程度</option>
+              <option value="name">名称排序</option>
+              <option value="newest">最新收录</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- 工具卡片网格 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6" id="tools-container">
+          <!-- 工具卡片将通过JavaScript动态生成 -->
+        </div>
+        
+        <!-- 无结果提示 -->
+        <div id="no-results" class="hidden flex flex-col items-center justify-center py-16 col-span-full">
+          <div class="w-24 h-24 mb-4 bg-blue-50 rounded-full flex items-center justify-center opacity-70">
+            <img src="https://p3-doubao-search-sign.byteimg.com/tos-cn-i-qvj2lq49k0/1249756443c14b48869046a19849951f~tplv-be4g95zd3a-image.image" alt="无结果" class="w-16 h-16 opacity-50">
+          </div>
+          <h3 class="text-xl font-semibold text-gray-700 mb-2">未找到匹配的工具</h3>
+          <p class="text-gray-500 mb-6">尝试使用其他关键词或分类进行搜索</p>
+          <button id="reset-search" class="btn-primary hover-glow">
+            <i class="fa fa-refresh mr-2"></i>重置搜索
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- 底部区域 -->
+  <footer class="bg-gradient-to-t from-blue-50 to-white border-t border-blue-100 mt-12 relative z-10 rounded-t-3xl shadow-inner">
+    <div class="container mx-auto px-4 py-12">
+      <!-- 波浪装饰 -->
+      <div class="absolute top-0 left-0 w-full overflow-hidden leading-none">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="w-full h-12 text-blue-50 fill-current">
+          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.92,140.83,111.31,208.18,94.19,274.62,78.92,348.89,54.17,408.18,43.17Z"></path>
+        </svg>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- 友情链接 -->
+        <div class="lg:col-span-4 mb-6">
+          <div class="bg-white bg-opacity-70 rounded-xl shadow-sm p-4 border border-blue-50">
+            <h3 class="text-lg font-semibold mb-3 text-gray-800 flex items-center">
+              <i class="fa fa-link text-primary mr-2"></i>友情链接
+            </h3>
+            <div class="flex flex-wrap gap-3">
+              <a href="https://www.xishuzy.com/" target="_blank" class="flex items-center bg-blue-50 hover:bg-blue-100 text-gray-700 hover:text-primary px-3 py-1.5 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md">
+                <i class="fa fa-external-link mr-1.5 text-primary/70 text-sm"></i>
+                <span class="text-sm">西数资源网</span>
+              </a>
+              <a href="#" target="_blank" class="flex items-center bg-blue-50 hover:bg-blue-100 text-gray-700 hover:text-primary px-3 py-1.5 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md">
+                <i class="fa fa-external-link mr-1.5 text-primary/70 text-sm"></i>
+                <span class="text-sm">AI工具导航</span>
+              </a>
+              <a href="#" target="_blank" class="flex items-center bg-blue-50 hover:bg-blue-100 text-gray-700 hover:text-primary px-3 py-1.5 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md">
+                <i class="fa fa-external-link mr-1.5 text-primary/70 text-sm"></i>
+                <span class="text-sm">科技前沿</span>
+              </a>
+              <a href="#" target="_blank" class="flex items-center bg-blue-50 hover:bg-blue-100 text-gray-700 hover:text-primary px-3 py-1.5 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md">
+                <i class="fa fa-external-link mr-1.5 text-primary/70 text-sm"></i>
+                <span class="text-sm">开发者社区</span>
+              </a>
+              <a href="#" target="_blank" class="flex items-center bg-blue-50 hover:bg-blue-100 text-gray-700 hover:text-primary px-3 py-1.5 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md">
+                <i class="fa fa-external-link mr-1.5 text-primary/70 text-sm"></i>
+                <span class="text-sm">设计资源库</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 品牌信息 -->
+        <div class="lg:col-span-1">
+          <div class="flex items-center space-x-2 mb-6">
+            <div class="bg-gradient-to-r from-primary to-secondary p-1.5 rounded-lg shadow-md">
+              <img src="https://p11-doubao-search-sign.byteimg.com/pgc-image/5b5394c2489043f0a04300045f011331~tplv-be4g95zd3a-image.image" alt="AI工具导航" class="h-8 w-8 bg-white p-0.5 rounded">
+            </div>
+            <span class="text-xl font-bold gradient-text">AI工具导航</span>
+          </div>
+          <p class="text-gray-600 text-sm mb-6">
+            发现最好用的AI工具，提升工作效率与创造力
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="w-10 h-10 rounded-full bg-blue-50 hover:bg-primary flex items-center justify-center text-primary hover:text-white transition-all duration-300 shadow-sm hover:shadow-md">
+              <i class="fa fa-github"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-blue-50 hover:bg-primary flex items-center justify-center text-primary hover:text-white transition-all duration-300 shadow-sm hover:shadow-md">
+              <i class="fa fa-twitter"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-blue-50 hover:bg-primary flex items-center justify-center text-primary hover:text-white transition-all duration-300 shadow-sm hover:shadow-md">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- 工具分类链接 -->
+        <div>
+          <h3 class="text-lg font-semibold mb-6 text-gray-800 flex items-center">
+            <i class="fa fa-th-large text-primary mr-2"></i>热门分类
+          </h3>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fa fa-comments text-primary/70 mr-2"></i>对话生成</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fa fa-image text-primary/70 mr-2"></i>图像生成</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fa fa-video-camera text-primary/70 mr-2"></i>视频生成</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fa fa-code text-primary/70 mr-2"></i>编程开发</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fa fa-briefcase text-primary/70 mr-2"></i>办公效率</a></li>
+          </ul>
+        </div>
+        
+        <!-- 资源链接 -->
+        <div>
+          <h3 class="text-lg font-semibold mb-6 text-gray-800 flex items-center">
+            <i class="fa fa-star text-primary mr-2"></i>资源中心
+          </h3>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fa fa-book text-primary/70 mr-2"></i>AI教程</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fa fa-lightbulb-o text-primary/70 mr-2"></i>使用技巧</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fa fa-newspaper-o text-primary/70 mr-2"></i>行业资讯</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fa fa-users text-primary/70 mr-2"></i>用户社区</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fa fa-question-circle text-primary/70 mr-2"></i>常见问题</a></li>
+          </ul>
+        </div>
+        
+        <!-- 订阅区域 -->
+        <div>
+          <h3 class="text-lg font-semibold mb-6 text-gray-800 flex items-center">
+            <i class="fa fa-paper-plane text-primary mr-2"></i>保持联系
+          </h3>
+          <p class="text-gray-600 text-sm mb-4">订阅我们的更新，获取最新AI工具和技术资讯</p>
+          <div class="bg-white rounded-xl shadow-sm p-4 mb-6">
+            <div class="flex flex-col space-y-3">
+              <input type="email" placeholder="您的邮箱地址" class="input-primary">
+              <button class="btn-primary w-full">
+                <i class="fa fa-paper-plane mr-2"></i>订阅更新
+              </button>
+            </div>
+          </div>
+          <p class="text-xs text-gray-500">我们尊重您的隐私，不会向第三方分享您的信息</p>
+        </div>
+        
+
+      </div>
+      
+
+      
+      <!-- 版权信息 -->
+      <div class="mt-12 pt-6 border-t border-blue-100 flex flex-col md:flex-row justify-between items-center">
+        <div class="flex items-center mb-4 md:mb-0">
+          <div class="h-8 w-8 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center text-white text-xs font-bold mr-2">AI</div>
+          <p class="text-gray-600 text-sm">© 2025 AI工具导航. 让AI为生活添彩</p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="#" class="text-gray-500 hover:text-primary text-sm transition-colors">关于我们</a>
+          <span class="text-gray-300">•</span>
+          <a href="#" class="text-gray-500 hover:text-primary text-sm transition-colors">隐私政策</a>
+          <span class="text-gray-300">•</span>
+          <a href="#" class="text-gray-500 hover:text-primary text-sm transition-colors">使用条款</a>
+          <span class="text-gray-300">•</span>
+          <a href="#" class="text-gray-500 hover:text-primary text-sm transition-colors">联系我们</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 网址验证结果弹窗 -->
+  <div id="url-check-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden backdrop-blur-sm">
+    <div class="bg-white rounded-xl shadow-xl max-w-md w-full mx-4 p-6 relative overflow-hidden" data-aos="zoom-in">
+      <!-- 弹窗背景装饰 -->
+      <div class="absolute top-0 right-0 w-32 h-32 bg-blue-100 rounded-full -mr-16 -mt-16 opacity-50"></div>
+      <div class="absolute bottom-0 left-0 w-24 h-24 bg-purple-100 rounded-full -ml-12 -mb-12 opacity-50"></div>
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-lg font-semibold text-gray-800">网址验证结果</h3>
+        <button id="close-modal" class="text-gray-400 hover:text-gray-600">
+          <i class="fa fa-times"></i>
+        </button>
+      </div>
+      
+      <div id="url-check-loading" class="flex flex-col items-center py-4 relative z-10">
+        <div class="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mb-3">
+          <i class="fa fa-spinner fa-spin text-3xl text-primary"></i>
+        </div>
+        <p class="text-gray-600">正在验证网址...</p>
+      </div>
+      
+      <div id="url-check-success" class="hidden relative z-10">
+        <div class="flex items-center justify-center mb-4">
+          <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center animate-pulse">
+            <i class="fa fa-check text-green-500 text-2xl"></i>
+          </div>
+        </div>
+        <h4 class="text-center text-lg font-medium text-gray-800 mb-2">网址可正常访问</h4>
+        <p class="text-center text-gray-600 text-sm mb-4 bg-blue-50 px-3 py-2 rounded-lg" id="url-check-domain"></p>
+      </div>
+      
+      <div id="url-check-error" class="hidden relative z-10">
+        <div class="flex items-center justify-center mb-4">
+          <div class="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center animate-pulse">
+            <i class="fa fa-times text-red-500 text-2xl"></i>
+          </div>
+        </div>
+        <h4 class="text-center text-lg font-medium text-gray-800 mb-2">网址无法访问</h4>
+        <p class="text-center text-gray-600 text-sm mb-4 bg-red-50 px-3 py-2 rounded-lg" id="url-check-error-message"></p>
+      </div>
+      
+      <div class="flex justify-end relative z-10">
+        <button id="visit-url-btn" class="btn-primary hidden hover-glow">
+          <i class="fa fa-external-link mr-2"></i>访问网址
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // AI工具数据
+    const aiTools = [
+      // 对话生成类
+      {
+        id: 1,
+        name: "ChatGPT",
+        description: "全球最强通用AI，支持GPTs、数据分析、搜索、图像生成、画布、高级语音等，可以满足大部分日常任务与创作内容。",
+        url: "https://www.chatgpt.com",
+        category: "chatbot",
+        tags: ["对话", "多模态", "通用AI"],
+        popularity: 100,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 2,
+        name: "DeepSeek",
+        description: "中文理解精准，支持长文档处理和文件解析（PDF/Word/Excel），适合生成营销文案、数据分析报告。",
+        url: "https://chat.deepseek.com",
+        category: "chatbot",
+        tags: ["对话", "长文本", "中文优化"],
+        popularity: 95,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 3,
+        name: "豆包",
+        description: "字节跳动旗下AI平台，整合了问答、翻译、音乐、绘图、文案等八大功能，既能满足日常娱乐，也能用于办公学习。",
+        url: "https://www.doubao.com",
+        category: "chatbot",
+        tags: ["对话", "多模态", "国产"],
+        popularity: 90,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 19,
+        name: "Kimi",
+        description: "支持超长文本（200万汉字）解析，适合学术研究与长文档分析，能快速总结和提取关键信息。",
+        url: "https://kimi.moonshot.cn",
+        category: "chatbot",
+        tags: ["对话", "长文本", "研究"],
+        popularity: 86,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 20,
+        name: "智谱清言",
+        description: "基于ChatGLM2模型开发的生成式AI助手，支持生成视频，做PPT，生成代码，创建智能体。",
+        url: "https://chatglm.cn",
+        category: "chatbot",
+        tags: ["对话", "多模态", "国产"],
+        popularity: 82,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 26,
+        name: "Claude",
+        description: "Anthropic推出的AI助手，擅长复杂推理和创意写作，支持100K上下文窗口。",
+        url: "https://claude.ai",
+        category: "chatbot",
+        tags: ["对话", "长文本", "创意写作"],
+        popularity: 92,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 27,
+        name: "讯飞星火",
+        description: "科大讯飞推出的认知大模型，在语音识别和中文理解方面表现出色。",
+        url: "https://xinghuo.xfyun.cn",
+        category: "chatbot",
+        tags: ["对话", "语音识别", "国产"],
+        popularity: 84,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 28,
+        name: "文心一言",
+        description: "百度推出的生成式AI，在中文理解和知识问答方面表现优异。",
+        url: "https://yiyan.baidu.com",
+        category: "chatbot",
+        tags: ["对话", "中文理解", "知识问答"],
+        popularity: 88,
+        isNew: false,
+        verified: true
+      },
+      
+      // 图像生成类
+      {
+        id: 4,
+        name: "Midjourney",
+        description: "顶尖图像生成工具，新增动态渲染功能，支持生成10秒短视频。",
+        url: "https://www.midjourney.com",
+        category: "image",
+        tags: ["图像生成", "艺术", "创意"],
+        popularity: 98,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 5,
+        name: "FLUX",
+        description: "生成更精准，手指生成更稳定，速度更快（3-8 步出图），支持商用，综合性全方位升级。",
+        url: "https://playground.bfl.ai/image/",
+        category: "image",
+        tags: ["图像生成", "快速", "商用"],
+        popularity: 85,
+        isNew: true,
+        verified: true
+      },
+      {
+        id: 21,
+        name: "Whisk",
+        description: "谷歌旗下的特色AI绘画产品，支持图生图、风格转换、图片融合等创意功能。",
+        url: "https://whisk-ai.org",
+        category: "image",
+        tags: ["图像生成", "风格转换", "创意"],
+        popularity: 79,
+        isNew: true,
+        verified: true
+      },
+      {
+        id: 22,
+        name: "LibLib AI",
+        description: "国内领先的AI创作平台，模型与插件资源丰富，支持LoRA训练和视频生成。",
+        url: "https://www.liblib.art",
+        category: "image",
+        tags: ["图像生成", "社区", "国产"],
+        popularity: 83,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 29,
+        name: "DALL·E 3",
+        description: "OpenAI推出的先进图像生成模型，能根据详细文本描述创建高度逼真的图像。",
+        url: "https://openai.com/dall-e-3",
+        category: "image",
+        tags: ["图像生成", "创意", "逼真"],
+        popularity: 94,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 30,
+        name: "Stable Diffusion",
+        description: "开源图像生成模型，支持本地部署和定制训练，社区生态丰富。",
+        url: "https://stability.ai/stable-diffusion",
+        category: "image",
+        tags: ["图像生成", "开源", "定制化"],
+        popularity: 90,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 31,
+        name: "创梦易绘",
+        description: "国产AI绘画工具，支持多种艺术风格，操作简单易用，适合初学者。",
+        url: "https://www.chuangmengai.com",
+        category: "image",
+        tags: ["图像生成", "艺术风格", "国产"],
+        popularity: 76,
+        isNew: true,
+        verified: true
+      },
+      
+      // 视频生成类
+      {
+        id: 6,
+        name: "即梦",
+        description: "可以用提示词直接生成图片和视频；另外，还有数字人对口型、动作模仿的功能。",
+        url: "https://jimeng.jianying.com",
+        category: "video",
+        tags: ["视频生成", "数字人", "国产"],
+        popularity: 80,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 7,
+        name: "可灵",
+        description: "国产最强AI视频生成模型，超越Sora，1分钟内生成1080P视频，支持方言语音同步。",
+        url: "https://app.klingai.com/cn/",
+        category: "video",
+        tags: ["视频生成", "高清", "国产"],
+        popularity: 88,
+        isNew: true,
+        verified: true
+      },
+      {
+        id: 8,
+        name: "Runway",
+        description: "电影级视频特效，支持视频转绘与专业级模板，动态元素融合能力强。",
+        url: "https://runwayml.com/",
+        category: "video",
+        tags: ["视频生成", "特效", "专业"],
+        popularity: 92,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 32,
+        name: "Sora",
+        description: "OpenAI推出的文本生成视频模型，能创建长达1分钟的高质量视频。",
+        url: "https://openai.com/sora",
+        category: "video",
+        tags: ["视频生成", "长视频", "高质量"],
+        popularity: 96,
+        isNew: true,
+        verified: true
+      },
+      {
+        id: 33,
+        name: "Pika",
+        description: "AI视频生成工具，支持文本和图像生成视频，风格多样，操作简单。",
+        url: "https://pika.art",
+        category: "video",
+        tags: ["视频生成", "创意", "易用"],
+        popularity: 85,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 34,
+        name: "Meta AI Video",
+        description: "Meta推出的视频生成模型，在动作连贯性和场景理解方面表现出色。",
+        url: "https://ai.meta.com/tools/video-generation/",
+        category: "video",
+        tags: ["视频生成", "动作连贯", "场景理解"],
+        popularity: 82,
+        isNew: true,
+        verified: true
+      },
+      
+      // 音频音乐类
+      {
+        id: 9,
+        name: "海螺AI",
+        description: "中文语音克隆与情感化语音生成，30秒即可复刻用户声音，情绪表达自然。",
+        url: "https://hailuoai.com",
+        category: "audio",
+        tags: ["语音合成", "情感", "中文"],
+        popularity: 75,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 10,
+        name: "Suno",
+        description: "AI音乐生成，支持4分钟完整曲目与用户声音合成，专业性强。",
+        url: "https://suno.com",
+        category: "audio",
+        tags: ["音乐生成", "长曲目", "专业"],
+        popularity: 82,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 35,
+        name: "Soundraw",
+        description: "AI音乐生成平台，提供无版权音乐，可根据场景和情绪生成定制音乐。",
+        url: "https://soundraw.io",
+        category: "audio",
+        tags: ["音乐生成", "无版权", "定制"],
+        popularity: 78,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 36,
+        name: "Descript",
+        description: "音频和视频编辑工具，支持语音转文字、文字编辑直接修改音频，功能强大。",
+        url: "https://www.descript.com",
+        category: "audio",
+        tags: ["音频编辑", "语音转文字", "视频编辑"],
+        popularity: 84,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 37,
+        name: "Mubert",
+        description: "AI音乐生成平台，专注于生成流式音乐，适合游戏、视频和直播等场景。",
+        url: "https://mubert.com",
+        category: "audio",
+        tags: ["音乐生成", "流式音乐", "场景音乐"],
+        popularity: 76,
+        isNew: false,
+        verified: true
+      },
+      
+      // 编程开发类
+      {
+        id: 11,
+        name: "Cursor",
+        description: "深度优化的AI代码编辑器，支持自然语言生成微服务架构图，导出Visio文件。",
+        url: "https://www.cursor.com/",
+        category: "code",
+        tags: ["编程", "代码生成", "编辑器"],
+        popularity: 87,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 12,
+        name: "GitHub Copilot",
+        description: "微软推出的编程助手，支持自然语言调试，缩短调试时间40%。",
+        url: "https://github.com/features/copilot",
+        category: "code",
+        tags: ["编程", "代码补全", "开发工具"],
+        popularity: 90,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 23,
+        name: "Trae",
+        description: "字节跳动推出的面向初学者的编程助手，支持免费使用Claude 3.5模型，全中文界面。",
+        url: "https://www.trae.ai",
+        category: "code",
+        tags: ["编程", "初学者", "中文"],
+        popularity: 74,
+        isNew: true,
+        verified: true
+      },
+      {
+        id: 38,
+        name: "Codeium",
+        description: "免费的AI代码助手，支持40多种编程语言，提供代码补全和生成功能。",
+        url: "https://codeium.com",
+        category: "code",
+        tags: ["编程", "代码补全", "免费"],
+        popularity: 85,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 39,
+        name: "Replit Ghostwriter",
+        description: "集成在Replit平台的AI编程助手，支持代码生成、解释和调试。",
+        url: "https://replit.com/ghostwriter",
+        category: "code",
+        tags: ["编程", "代码生成", "在线IDE"],
+        popularity: 81,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 40,
+        name: "TabNine",
+        description: "AI驱动的代码补全工具，支持多种IDE，可根据项目上下文提供智能补全。",
+        url: "https://www.tabnine.com",
+        category: "code",
+        tags: ["编程", "代码补全", "IDE插件"],
+        popularity: 79,
+        isNew: false,
+        verified: true
+      },
+      
+      // 智能搜索类
+      {
+        id: 13,
+        name: "Perplexity",
+        description: "最靠谱的AI搜索引擎，提供带引用的答案，支持联网检索和本地文件解析。",
+        url: "https://www.perplexity.ai",
+        category: "search",
+        tags: ["搜索", "引用", "研究"],
+        popularity: 85,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 14,
+        name: "秘塔AI搜索",
+        description: "支持文件上传建立个人知识库，接入DeepSeek R1增强推理，学术研究场景表现突出。",
+        url: "https://metaso.cn",
+        category: "search",
+        tags: ["搜索", "知识库", "学术"],
+        popularity: 78,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 41,
+        name: "Bard",
+        description: "谷歌推出的AI搜索引擎，结合了传统搜索和生成式AI的优势。",
+        url: "https://bard.google.com",
+        category: "search",
+        tags: ["搜索", "生成式AI", "谷歌"],
+        popularity: 88,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 42,
+        name: "You.com",
+        description: "AI驱动的搜索引擎，提供传统搜索结果和AI生成的摘要，界面简洁。",
+        url: "https://you.com",
+        category: "search",
+        tags: ["搜索", "AI摘要", "简洁界面"],
+        popularity: 82,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 43,
+        name: "Neeva",
+        description: "无广告的AI搜索引擎，注重隐私保护，提供高质量的搜索结果。",
+        url: "https://neeva.com",
+        category: "search",
+        tags: ["搜索", "无广告", "隐私保护"],
+        popularity: 77,
+        isNew: false,
+        verified: true
+      },
+      
+      // 3D建模类
+      {
+        id: 15,
+        name: "TripoAI",
+        description: "高质量3D模型生成，细节优化，支持通过插件深度打通主流创作工具。",
+        url: "https://studio.tripo3d.ai",
+        category: "3d",
+        tags: ["3D建模", "设计", "专业"],
+        popularity: 76,
+        isNew: true,
+        verified: true
+      },
+      {
+        id: 16,
+        name: "混元3D",
+        description: "腾讯开源3D建模工具，支持草图生成3D模型，适合设计师快速原型制作。",
+        url: "https://3d.hunyuan.tencent.com",
+        category: "3d",
+        tags: ["3D建模", "开源", "国产"],
+        popularity: 72,
+        isNew: true,
+        verified: true
+      },
+      {
+        id: 44,
+        name: "Luma AI",
+        description: "使用手机拍摄即可生成高质量3D模型，适合快速创建真实物体的3D表示。",
+        url: "https://lumalabs.ai",
+        category: "3d",
+        tags: ["3D建模", "手机拍摄", "真实物体"],
+        popularity: 84,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 45,
+        name: "DreamFusion",
+        description: "文本生成3D模型的工具，能根据文字描述创建详细的3D场景和物体。",
+        url: "https://dreamfusion3d.github.io",
+        category: "3d",
+        tags: ["3D建模", "文本生成", "创意"],
+        popularity: 80,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 46,
+        name: "Nvidia Omniverse",
+        description: "NVIDIA推出的3D协作平台，支持AI辅助设计和实时渲染。",
+        url: "https://www.nvidia.com/en-us/omniverse/",
+        category: "3d",
+        tags: ["3D建模", "协作", "实时渲染"],
+        popularity: 86,
+        isNew: false,
+        verified: true
+      },
+      
+      // 办公效率类
+      {
+        id: 17,
+        name: "Notion AI",
+        description: "智能笔记、文档总结、项目管理，提升团队协作效率的全能工具。",
+        url: "https://www.notion.so/product/ai",
+        category: "office",
+        tags: ["办公", "笔记", "协作"],
+        popularity: 88,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 18,
+        name: "通义千问",
+        description: "阿里系的通义千问专注于职场应用，在推理和中文理解上优势明显，尤其适合PPT制作、会议记录等任务。",
+        url: "https://www.tongyi.com",
+        category: "office",
+        tags: ["办公", "中文", "职场"],
+        popularity: 84,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 24,
+        name: "影刀RPA",
+        description: "自动化流程工具，模拟人类操作完成财务、客服、数据整理等重复性任务。",
+        url: "https://www.yingdao.com",
+        category: "office",
+        tags: ["办公", "自动化", "RPA"],
+        popularity: 77,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 25,
+        name: "Tableau AI",
+        description: "商业智能助手，新增因果分析模块，识别数据关联逻辑，提升数据分析能力。",
+        url: "https://www.tableau.com/products/ai",
+        category: "office",
+        tags: ["数据分析", "商业智能", "可视化"],
+        popularity: 81,
+        isNew: true,
+        verified: true
+      },
+      {
+        id: 47,
+        name: "Microsoft Copilot",
+        description: "微软推出的AI助手，集成在Office套件中，提升文档、表格和演示文稿的创建效率。",
+        url: "https://www.microsoft.com/en-us/microsoft-365-copilot",
+        category: "office",
+        tags: ["办公", "Microsoft Office", "文档生成"],
+        popularity: 92,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 48,
+        name: "Grammarly",
+        description: "AI驱动的写作助手，提供语法检查、风格建议和内容改进，提升写作质量。",
+        url: "https://www.grammarly.com",
+        category: "office",
+        tags: ["写作", "语法检查", "内容改进"],
+        popularity: 89,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 49,
+        name: "Otter.ai",
+        description: "AI会议记录工具，自动转录会议内容，生成摘要和行动项，提升会议效率。",
+        url: "https://otter.ai",
+        category: "office",
+        tags: ["会议记录", "语音转文字", "摘要生成"],
+        popularity: 83,
+        isNew: false,
+        verified: true
+      },
+      {
+        id: 50,
+        name: "TldrThis",
+        description: "AI文章摘要工具，能快速总结长文章和网页内容，提取关键信息。",
+        url: "https://tldrthis.com",
+        category: "office",
+        tags: ["内容摘要", "信息提取", "效率工具"],
+        popularity: 79,
+        isNew: false,
+        verified: true
+      }
+    ];
+
+    // DOM元素
+    const toolsContainer = document.getElementById('tools-container');
+    const searchInput = document.getElementById('search-input');
+    const searchInputMobile = document.getElementById('search-input-mobile');
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    const resultTitle = document.getElementById('result-title');
+    const noResults = document.getElementById('no-results');
+    const resetSearchBtn = document.getElementById('reset-search');
+    const sortSelect = document.getElementById('sort-select');
+    const favoritesBtn = document.getElementById('favorites-btn');
+    const toolCountElement = document.getElementById('tool-count');
+    const favoriteCountElement = document.getElementById('favorite-count');
+    const urlCheckModal = document.getElementById('url-check-modal');
+    const closeModalBtn = document.getElementById('close-modal');
+    const urlCheckLoading = document.getElementById('url-check-loading');
+    const urlCheckSuccess = document.getElementById('url-check-success');
+    const urlCheckError = document.getElementById('url-check-error');
+    const urlCheckDomain = document.getElementById('url-check-domain');
+    const urlCheckErrorMessage = document.getElementById('url-check-error-message');
+    const visitUrlBtn = document.getElementById('visit-url-btn');
+    const themeToggle = document.getElementById('theme-toggle');
+
+    // 初始化AOS动画库
+    document.addEventListener('DOMContentLoaded', function() {
+      AOS.init({
+        duration: 800,
+        once: true
+      });
+      
+      // 初始化工具数据
+      initializeTools();
+      
+      // 初始化事件监听
+      initializeEventListeners();
+      
+      // 更新统计数据
+      updateStatistics();
+      
+      // 检查滚动位置，改变导航栏样式
+      window.addEventListener('scroll', handleScroll);
+    });
+
+    // 初始化工具数据
+    function initializeTools() {
+      // 从localStorage加载收藏状态
+      loadFavorites();
+      
+      // 渲染工具卡片
+      renderTools(aiTools);
+      
+      // 更新工具计数
+      toolCountElement.textContent = aiTools.length;
+      
+      // 初始化粒子效果
+      initParticles();
+    }
+
+    // 初始化事件监听
+    function initializeEventListeners() {
+      // 搜索功能
+      searchInput.addEventListener('input', handleSearch);
+      searchInputMobile.addEventListener('input', function() {
+        searchInput.value = this.value;
+        handleSearch();
+      });
+      
+      // 分类筛选
+      categoryButtons.forEach(button => {
+        button.addEventListener('click', handleCategoryClick);
+      });
+      
+      // 重置搜索
+      resetSearchBtn.addEventListener('click', resetSearch);
+      
+      // 排序功能
+      sortSelect.addEventListener('change', handleSortChange);
+      
+      // 收藏按钮
+      favoritesBtn.addEventListener('click', toggleFavoritesView);
+      
+      // 网址验证弹窗
+      closeModalBtn.addEventListener('click', closeUrlCheckModal);
+      visitUrlBtn.addEventListener('click', visitUrl);
+      
+      // 主题切换
+      themeToggle.addEventListener('click', toggleTheme);
+      
+      // 点击卡片外部关闭弹窗
+      urlCheckModal.addEventListener('click', function(event) {
+        if (event.target === this) {
+          closeUrlCheckModal();
+        }
+      });
+      
+      // 键盘事件
+      document.addEventListener('keydown', function(event) {
+        // ESC键关闭弹窗
+        if (event.key === 'Escape' && !urlCheckModal.classList.contains('hidden')) {
+          closeUrlCheckModal();
         }
         
-    </style>
-</head>
-<body class="bj">
-    <div>
-        <div class="popup popup-tips none popupShow" id="popup">
-            <div class="popup-header">
-                <h3 class="popup-title">
-                    🤪甜甜网丨发布页🤪
-                </h3>
+        // Ctrl/Cmd + / 聚焦搜索框
+        if ((event.ctrlKey || event.metaKey) && event.key === '/') {
+          event.preventDefault();
+          searchInput.focus();
+        }
+      });
+    }
+    
+    // 处理滚动事件
+    function handleScroll() {
+      const header = document.getElementById('main-header');
+      if (header) {
+        if (window.scrollY > 10) {
+          header.classList.add('shadow-md');
+          header.classList.remove('shadow-sm');
+        } else {
+          header.classList.remove('shadow-md');
+          header.classList.add('shadow-sm');
+        }
+      }
+    }
+    
+    // 初始化粒子效果
+    function initParticles() {
+      // 创建粒子容器
+      const particlesContainer = document.getElementById('particles-js');
+      if (!particlesContainer) return;
+      
+      // 简单的粒子效果实现
+      const particlesCount = 50;
+      
+      for (let i = 0; i < particlesCount; i++) {
+        const particle = document.createElement('div');
+        
+        // 随机大小
+        const size = Math.random() * 4 + 1;
+        
+        // 随机位置
+        const posX = Math.random() * 100;
+        const posY = Math.random() * 100;
+        
+        // 随机颜色
+        const colors = ['#3B82F6', '#6366F1', '#10B981', '#F59E0B', '#EC4899'];
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        
+        // 随机动画延迟和持续时间
+        const delay = Math.random() * 10;
+        const duration = Math.random() * 20 + 10;
+        
+        // 设置粒子样式
+        particle.style.cssText = `
+          position: absolute;
+          width: ${size}px;
+          height: ${size}px;
+          background-color: ${color};
+          border-radius: 50%;
+          left: ${posX}%;
+          top: ${posY}%;
+          opacity: 0.5;
+          animation: float ${duration}s ease-in-out ${delay}s infinite;
+          pointer-events: none;
+        `;
+        
+        particlesContainer.appendChild(particle);
+      }
+    }
+
+    // 渲染工具卡片
+    function renderTools(tools) {
+      // 清空容器
+      toolsContainer.innerHTML = '';
+      
+      // 检查是否有工具
+      if (tools.length === 0) {
+        noResults.classList.remove('hidden');
+        return;
+      }
+      
+      // 隐藏无结果提示
+      noResults.classList.add('hidden');
+      
+      // 渲染工具卡片
+      tools.forEach(tool => {
+        const toolCard = createToolCard(tool);
+        toolsContainer.appendChild(toolCard);
+      });
+      
+      // 重新初始化AOS动画
+      setTimeout(() => {
+        AOS.refresh();
+      }, 100);
+    }
+
+    // 创建工具卡片
+    function createToolCard(tool) {
+      const card = document.createElement('div');
+      card.className = 'bg-white rounded-xl shadow-sm overflow-hidden card-hover card-gradient border border-blue-50';
+      card.setAttribute('data-aos', 'fade-up');
+      card.setAttribute('data-aos-delay', '100');
+      
+      // 获取分类颜色
+      const categoryColor = getCategoryColor(tool.category);
+      
+      // 获取标签HTML
+      const tagsHtml = tool.tags.map(tag => `
+        <span class="badge bg-gray-100 text-gray-800">${tag}</span>
+      `).join('');
+      
+      // 设置卡片内容
+      card.innerHTML = `
+        <div class="p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <h3 class="text-lg font-semibold text-gray-800 mb-1">${tool.name}</h3>
+              <div class="flex items-center">
+                <span class="badge ${categoryColor}">${getCategoryName(tool.category)}</span>
+                ${tool.isNew ? '<span class="badge bg-green-100 text-green-800 ml-2">最新</span>' : ''}
+                ${tool.verified ? '<span class="badge bg-blue-100 text-blue-800 ml-2 flex items-center"><i class="fa fa-check-circle mr-1"></i>已验证</span>' : ''}
+              </div>
             </div>
-            <div class="popup-main">
-                <p class="popup-domain">
-                    <span>
-                        极优导航
-                    </span>
-                    <strong>
-                        <a href="https://iosdh.cn" target="_blank">
-                            点击进入
-                        </a>
-                    </strong>
-                </p>
-                <p class="popup-domain">
-                    <span>
-                        甜甜网盘
-                    </span>
-                    <strong>
-                        <a href="https://pan.puaaa.cn" target="_blank">
-                            点击进入
-                        </a>
-                    </strong>
-                </p>
-                <p class="popup-domain">
-                    <span>
-                        苹果证书
-                    </span>
-                    <strong>
-                        <a href="https://puaaa.cn/shop/10.html" target="_blank">
-                        点击进入
-                        </a>
-                    </strong>
-                </p>
-                <p class="popup-domain">
-                    <span>
-                        免费包邮/低月租/大流量/正规卡
-                    </span>
-                     <strong>
-                        <a href="https://172.lot-ml.com/ProductEn/Index/03607e34ea182d64" target="_blank">
-                        点击进入
-                        </a>
-                    </strong>
-                </p>
-                <p class="popup-domain">
-                    <span>
-                        微信交流群
-                    </span>
-                     <strong>
-                        <a href="https://iosyyds.github.io/vxq/" target="_blank">
-                        点击进入
-                        </a>
-                    </strong>
-                </p>
-                <p>
-                    🍀 发送任意邮件到
-                    <strong>
-                        yellowjiba@gmail.com
-                    </strong>
-                    自动回复最新地址！
-                </p>
-               
-                <p align="center">
-                    <strong>
-                        🚨 为防止网站失联迷路，建议收藏本页地址！
-                    </strong>
-                </p>
+            <button class="favorite-btn text-gray-400 hover:text-yellow-500 transition-colors bg-white bg-opacity-70 p-1.5 rounded-full" data-id="${tool.id}">
+              <i class="fa ${tool.favorite ? 'fa-star text-yellow-500' : 'fa-star-o'}"></i>
+            </button>
+          </div>
+          
+          <p class="text-gray-600 text-sm mb-4 line-clamp-3">${tool.description}</p>
+          
+          <div class="flex flex-wrap gap-2 mb-4">
+            ${tagsHtml}
+          </div>
+          
+          <div class="flex justify-between items-center pt-3 border-t border-gray-50">
+            <div class="flex items-center">
+              <button class="check-url-btn text-sm text-primary hover:text-primary/80 transition-colors mr-4 flex items-center" data-url="${tool.url}">
+                <i class="fa fa-check-circle mr-1"></i>验证
+              </button>
             </div>
-            <div class="popup-footer">
-                <div class="popup-btn close-pop">
-                    <button type="submit" onclick="javascript:addFavorite2()">收到，OVER</button>
-                </div>
-            </div>
+            <a href="${tool.url}" target="_blank" class="btn-primary text-sm hover-glow">
+              <i class="fa fa-external-link mr-1"></i>访问
+            </a>
+          </div>
         </div>
-    </div>
-	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7156604582462189"
-     crossorigin="anonymous"></script>
+      `;
+      
+      // 添加事件监听
+      const favoriteBtn = card.querySelector('.favorite-btn');
+      favoriteBtn.addEventListener('click', function() {
+        toggleFavorite(tool.id);
+      });
+      
+      const checkUrlBtn = card.querySelector('.check-url-btn');
+      checkUrlBtn.addEventListener('click', function() {
+        checkUrl(tool.url);
+      });
+      
+      return card;
+    }
+
+    // 处理搜索
+    function handleSearch() {
+      const searchTerm = searchInput.value.toLowerCase().trim();
+      
+      if (searchTerm === '') {
+        // 如果搜索词为空，显示当前分类的所有工具
+        const activeCategoryBtn = document.querySelector('.category-btn.bg-gradient-to-r, .category-btn.bg-primary');
+        if (activeCategoryBtn) {
+          const activeCategory = activeCategoryBtn.dataset.category;
+          filterToolsByCategory(activeCategory);
+        } else {
+          // 如果没有活跃分类，显示所有工具
+          filterToolsByCategory('all');
+        }
+        return;
+      }
+      
+      // 搜索工具名称和描述
+      const filteredTools = aiTools.filter(tool => 
+        tool.name.toLowerCase().includes(searchTerm) || 
+        tool.description.toLowerCase().includes(searchTerm) ||
+        tool.tags.some(tag => tag.toLowerCase().includes(searchTerm))
+      );
+      
+      // 更新结果标题
+      resultTitle.innerHTML = `搜索结果: <span class="gradient-text">"${searchTerm}"</span>`;
+      
+      // 渲染筛选后的工具
+      renderTools(filteredTools);
+      
+      // 更新分类按钮状态
+      categoryButtons.forEach(button => {
+        button.classList.remove('bg-primary', 'text-white');
+        button.classList.add('hover:bg-gray-100', 'text-gray-700');
+      });
+    }
+
+    // 处理分类点击
+    function handleCategoryClick(event) {
+      const category = event.currentTarget.dataset.category;
+      
+      // 更新分类按钮状态
+      categoryButtons.forEach(button => {
+        button.classList.remove('bg-primary', 'text-white');
+        button.classList.remove('bg-gradient-to-r', 'from-primary', 'to-secondary');
+        button.classList.add('hover:bg-gray-100', 'text-gray-700');
+      });
+      
+      event.currentTarget.classList.remove('hover:bg-gray-100', 'text-gray-700');
+      event.currentTarget.classList.add('bg-gradient-to-r', 'from-primary', 'to-secondary', 'text-white');
+      
+      // 筛选工具
+      filterToolsByCategory(category);
+      
+      // 更新结果标题
+      resultTitle.innerHTML = category === 'all' ? '<span class="gradient-text">全部AI工具</span>' : `<span class="gradient-text">${getCategoryName(category)}</span>`;
+      
+      // 重置搜索框
+      searchInput.value = '';
+      searchInputMobile.value = '';
+    }
+
+    // 按分类筛选工具
+    function filterToolsByCategory(category) {
+      if (category === 'all') {
+        renderTools(aiTools);
+      } else {
+        const filteredTools = aiTools.filter(tool => tool.category === category);
+        renderTools(filteredTools);
+      }
+    }
+
+    // 重置搜索
+    function resetSearch() {
+      // 重置搜索框
+      searchInput.value = '';
+      searchInputMobile.value = '';
+      
+      // 重置分类按钮
+      categoryButtons.forEach(button => {
+        button.classList.remove('bg-primary', 'text-white');
+        button.classList.add('hover:bg-gray-100', 'text-gray-700');
+        
+        if (button.dataset.category === 'all') {
+          button.classList.remove('hover:bg-gray-100', 'text-gray-700');
+          button.classList.add('bg-primary', 'text-white');
+        }
+      });
+      
+      // 更新结果标题
+      resultTitle.innerHTML = '<span class="gradient-text">全部AI工具</span>';
+      
+      // 渲染所有工具
+      renderTools(aiTools);
+    }
+
+    // 处理排序变化
+    function handleSortChange() {
+      const sortBy = sortSelect.value;
+      let sortedTools = [...aiTools];
+      
+      // 根据选择的排序方式排序
+      switch (sortBy) {
+        case 'name':
+          sortedTools.sort((a, b) => a.name.localeCompare(b.name));
+          break;
+        case 'newest':
+          sortedTools.sort((a, b) => b.isNew - a.isNew);
+          break;
+        case 'popular':
+        default:
+          sortedTools.sort((a, b) => b.popularity - a.popularity);
+          break;
+      }
+      
+      // 检查当前是否有活跃的分类筛选
+      const activeCategory = document.querySelector('.category-btn.bg-primary, .category-btn.bg-gradient-to-r').dataset.category;
+      
+      // 如果有活跃的分类筛选，应用分类筛选
+      if (activeCategory !== 'all') {
+        sortedTools = sortedTools.filter(tool => tool.category === activeCategory);
+      }
+      
+      // 检查是否有搜索词
+      const searchTerm = searchInput.value.toLowerCase().trim();
+      if (searchTerm !== '') {
+        sortedTools = sortedTools.filter(tool => 
+          tool.name.toLowerCase().includes(searchTerm) || 
+          tool.description.toLowerCase().includes(searchTerm) ||
+          tool.tags.some(tag => tag.toLowerCase().includes(searchTerm))
+        );
+      }
+      
+      // 渲染排序后的工具
+      renderTools(sortedTools);
+    }
+
+    // 切换收藏视图
+    function toggleFavoritesView() {
+      const favorites = aiTools.filter(tool => tool.favorite);
+      
+      if (favoritesBtn.classList.contains('active')) {
+        // 如果已经在收藏视图，返回全部工具视图
+        favoritesBtn.classList.remove('active');
+        favoritesBtn.innerHTML = '<i class="fa fa-star-o"></i><span class="hidden md:inline">我的收藏</span>';
+        
+        // 重置搜索
+        resetSearch();
+      } else {
+        // 如果不在收藏视图，切换到收藏视图
+        favoritesBtn.classList.add('active');
+        favoritesBtn.innerHTML = '<i class="fa fa-arrow-left mr-1"></i><span class="hidden md:inline">返回全部</span>';
+        
+        // 更新结果标题
+        resultTitle.textContent = '我的收藏';
+        
+        // 渲染收藏的工具
+        renderTools(favorites);
+        
+        // 重置分类按钮
+        categoryButtons.forEach(button => {
+          button.classList.remove('bg-primary', 'text-white');
+          button.classList.add('hover:bg-gray-100', 'text-gray-700');
+        });
+      }
+    }
+
+    // 切换收藏状态
+    function toggleFavorite(toolId) {
+      const tool = aiTools.find(tool => tool.id === toolId);
+      
+      if (tool) {
+        tool.favorite = !tool.favorite;
+        
+        // 更新收藏按钮图标
+        const favoriteBtns = document.querySelectorAll(`.favorite-btn[data-id="${toolId}"]`);
+        favoriteBtns.forEach(btn => {
+          const icon = btn.querySelector('i');
+          if (tool.favorite) {
+            icon.classList.remove('fa-star-o');
+            icon.classList.add('fa-star', 'text-yellow-500');
+            
+            // 添加收藏动画
+            icon.classList.add('animate-pulse');
+            setTimeout(() => {
+              icon.classList.remove('animate-pulse');
+            }, 1000);
+          } else {
+            icon.classList.remove('fa-star', 'text-yellow-500');
+            icon.classList.add('fa-star-o');
+          }
+        });
+        
+        // 保存收藏状态到localStorage
+        saveFavorites();
+        
+        // 更新统计数据
+        updateStatistics();
+        
+        // 如果当前在收藏视图，重新渲染
+        if (favoritesBtn.classList.contains('active')) {
+          const favorites = aiTools.filter(tool => tool.favorite);
+          renderTools(favorites);
+        }
+      }
+    }
+
+    // 从localStorage加载收藏状态
+    function loadFavorites() {
+      const favorites = JSON.parse(localStorage.getItem('aiToolFavorites') || '[]');
+      
+      aiTools.forEach(tool => {
+        tool.favorite = favorites.includes(tool.id);
+      });
+    }
+
+    // 保存收藏状态到localStorage
+    function saveFavorites() {
+      const favorites = aiTools.filter(tool => tool.favorite).map(tool => tool.id);
+      localStorage.setItem('aiToolFavorites', JSON.stringify(favorites));
+    }
+
+    // 检查网址可用性
+    function checkUrl(url) {
+      // 显示弹窗
+      urlCheckModal.classList.remove('hidden');
+      
+      // 重置弹窗状态
+      urlCheckLoading.classList.remove('hidden');
+      urlCheckSuccess.classList.add('hidden');
+      urlCheckError.classList.add('hidden');
+      visitUrlBtn.classList.add('hidden');
+      
+      // 提取域名
+      const domain = new URL(url).hostname;
+      urlCheckDomain.textContent = domain;
+      
+      // 存储当前检查的URL
+      urlCheckModal.dataset.url = url;
+      
+      // 模拟网址检查（实际项目中可以使用fetch或其他方法进行真实检查）
+      setTimeout(() => {
+        // 随机模拟成功或失败（实际项目中应该根据真实的检查结果）
+        const isSuccess = Math.random() > 0.2; // 80%的成功率
+        
+        urlCheckLoading.classList.add('hidden');
+        
+        if (isSuccess) {
+          urlCheckSuccess.classList.remove('hidden');
+          visitUrlBtn.classList.remove('hidden');
+        } else {
+          urlCheckError.classList.remove('hidden');
+          urlCheckErrorMessage.textContent = '该网址可能无法访问或已失效';
+        }
+      }, 1500);
+    }
+
+    // 关闭网址检查弹窗
+    function closeUrlCheckModal() {
+      urlCheckModal.classList.add('hidden');
+    }
+
+    // 访问网址
+    function visitUrl() {
+      const url = urlCheckModal.dataset.url;
+      if (url) {
+        window.open(url, '_blank');
+        closeUrlCheckModal();
+      }
+    }
+
+    // 切换主题
+    function toggleTheme() {
+      const body = document.body;
+      const icon = themeToggle.querySelector('i');
+      const header = document.getElementById('main-header');
+      
+      if (body.classList.contains('dark')) {
+        // 切换到浅色主题
+        body.classList.remove('dark');
+        body.classList.remove('bg-gray-900');
+        body.classList.remove('bg-gradient-to-br');
+        body.classList.remove('from-gray-900');
+        body.classList.remove('to-gray-800');
+        body.classList.add('bg-gray-50');
+        body.classList.add('bg-gradient-to-br');
+        body.classList.add('from-blue-50');
+        body.classList.add('to-white');
+        icon.classList.remove('fa-sun-o');
+        icon.classList.add('fa-moon-o');
+        
+        // 更新导航栏样式
+        if (header) {
+          header.classList.remove('glass-effect-dark');
+          header.classList.add('glass-effect');
+          header.classList.remove('border-gray-800');
+          header.classList.add('border-gray-200');
+        }
+        
+        // 保存主题偏好
+        localStorage.setItem('theme', 'light');
+      } else {
+        // 切换到深色主题
+        body.classList.add('dark');
+        body.classList.remove('bg-gray-50');
+        body.classList.remove('bg-gradient-to-br');
+        body.classList.remove('from-blue-50');
+        body.classList.remove('to-white');
+        body.classList.add('bg-gray-900');
+        body.classList.add('bg-gradient-to-br');
+        body.classList.add('from-gray-900');
+        body.classList.add('to-gray-800');
+        icon.classList.remove('fa-moon-o');
+        icon.classList.add('fa-sun-o');
+        
+        // 更新导航栏样式
+        if (header) {
+          header.classList.remove('glass-effect');
+          header.classList.add('glass-effect-dark');
+          header.classList.remove('border-gray-200');
+          header.classList.add('border-gray-800');
+        }
+        
+        // 保存主题偏好
+        localStorage.setItem('theme', 'dark');
+      }
+      
+      // 重新渲染工具卡片以适应主题
+      const activeCategory = document.querySelector('.category-btn.bg-primary, .category-btn.bg-gradient-to-r').dataset.category;
+      filterToolsByCategory(activeCategory);
+    }
+
+    // 更新统计数据
+    function updateStatistics() {
+      const favoriteCount = aiTools.filter(tool => tool.favorite).length;
+      favoriteCountElement.textContent = favoriteCount;
+      
+      // 更新收藏按钮上的徽章
+      const favoritesBadge = document.getElementById('favorites-badge');
+      if (favoritesBadge) {
+        favoritesBadge.textContent = favoriteCount;
+        
+        // 根据数量显示或隐藏徽章
+        if (favoriteCount > 0) {
+          favoritesBadge.classList.remove('hidden');
+        } else {
+          favoritesBadge.classList.add('hidden');
+        }
+      }
+    }
+
+    // 获取分类名称
+    function getCategoryName(category) {
+      const categoryMap = {
+        'chatbot': '对话生成',
+        'image': '图像生成',
+        'video': '视频生成',
+        'audio': '音频音乐',
+        'code': '编程开发',
+        'search': '智能搜索',
+        '3d': '3D建模',
+        'office': '办公效率'
+      };
+      
+      return categoryMap[category] || category;
+    }
+
+    // 获取分类颜色
+    function getCategoryColor(category) {
+      const colorMap = {
+        'chatbot': 'bg-blue-100 text-blue-800',
+        'image': 'bg-purple-100 text-purple-800',
+        'video': 'bg-red-100 text-red-800',
+        'audio': 'bg-green-100 text-green-800',
+        'code': 'bg-yellow-100 text-yellow-800',
+        'search': 'bg-indigo-100 text-indigo-800',
+        '3d': 'bg-pink-100 text-pink-800',
+        'office': 'bg-teal-100 text-teal-800'
+      };
+      
+      return colorMap[category] || 'bg-gray-100 text-gray-800';
+    }
+  </script>
 </body>
 </html>

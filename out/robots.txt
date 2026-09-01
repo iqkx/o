@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://iqkx.cn
+Sitemap: https://iqkx.cn/sitemap.xml
